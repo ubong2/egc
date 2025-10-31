@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Trade Africa Limited (TAL)</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a3a5f;
+            --secondary-blue: #2c5282;
+            --accent-gold: #d4af37;
+            --light-gold: #f7e8c3;
+            --dark-text: #2d3748;
+            --light-text: #718096;
+            --light-bg: #f7fafc;
+            --cream: #f8f4e9;
+        }
+
+        body {
+            color: var(--dark-text);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden !important;
+            width: 100%; 
+            background-color: var(--light-bg);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .navbar-brand span {
+            color: var(--accent-gold);
+        }
+
+        .nav-link {
+            margin: 0 10px;
+            transition: color 0.3s;
+            color: var(--dark-text);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-blue);
+            border-color: var(--secondary-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: white;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            background-color: #b8941f;
+            border-color: #b8941f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-services {
+            background: linear-gradient(rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .service-section {
+            padding: 100px 0;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--light-gold);
+            line-height: 1;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card p {
+            color: var(--light-text);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .service-features i {
+            color: var(--accent-gold);
+            margin-right: 12px;
+            margin-top: 4px;
+            font-size: 1.1rem;
+            min-width: 20px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-grid h4 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .brexit-alert {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .brexit-alert i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 58, 95, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26, 58, 95, 0.3);
+            color: white;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: slideIn 0.3s;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--light-text);
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: var(--accent-gold);
+        }
+
+        .modal-content h2 {
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        #supplyChainForm input,
+        #supplyChainForm textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        #supplyChainForm input:focus,
+        #supplyChainForm textarea:focus {
+            border-color: var(--accent-gold);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        #supplyChainForm button {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        #supplyChainForm button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(26, 58, 95, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer h5 {
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+        }
+
+        .footer a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-services {
+                padding: 120px 0 80px;
+            }
+            
+            .service-card {
+                padding: 30px 25px;
+            }
+            
+            .service-number {
+                font-size: 3rem;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Trade Africa <span>Limited (TAL)</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">PDF</a></li>
+                            <li><a class="dropdown-item" href="#">Newsletter</a></li>
+                            <li><a class="dropdown-item" href="#">Industry</a></li>
+                            <li><a class="dropdown-item" href="#">Webinar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-services">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">Our Expert Services</h1>
+            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">
+                Comprehensive solutions to empower African MSMEs in global trade, logistics, and market expansion
+            </p>
+            <a href="#services" class="btn btn-gold btn-lg" data-aos="fade-up" data-aos-delay="400">Explore Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="service-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Expertise</h2>
+
+            <!-- Global Logistics Services -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-number">01</div>
+                <h3>Global Logistics Services</h3>
+                <p>
+                    We understand that moving products internationally requires efficient logistics and risk management. Our global logistics solutions are tailored to ensure MSMEs can confidently navigate international trade routes, optimize supply chains, and minimize risks.
+                </p>
+                <ul class="service-features">
+                    <li><i class="fas fa-shipping-fast"></i> International logistics network solutions</li>
+                    <li><i class="fas fa-shield-alt"></i> Risk management for international shipments</li>
+                    <li><i class="fas fa-passport"></i> Freight forwarding &amp; customs support</li>
+                </ul>
+                <a href="#" class="cta-button" id="openFormButton">Optimize Your Supply Chain</a>
+            </div>
+
+            <!-- Executive Training -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-number">02</div>
+                <h3>Executive Development &amp; Training</h3>
+                <p>
+                    Building capacity within your leadership is essential for global expansion. Our customized workshops, seminars, and training sessions equip teams with the knowledge for successful international market entry.
+                </p>
+                <div class="service-grid">
+                    <div>
+                        <h4>Training Areas:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-chart-line"></i>International trade strategies</li>
+                            <li><i class="fas fa-users"></i>Leadership for global expansion</li>
+                            <li><i class="fas fa-project-diagram"></i>Complex market dynamics</li>
+                            <li><i class="fas fa-file-contract"></i>Trade documentation mastery</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="cta-button">Enroll in Training Program</a>
+            </div>
+
+            <!-- Market Entry Strategies -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-number">03</div>
+                <h3>Market Entry Strategies</h3>
+                <p>
+                    Comprehensive support in market entry, helping businesses overcome trade barriers and leverage Free Trade Agreements (FTAs).
+                </p>
+                <div class="service-grid">
+                    <div>
+                        <h4>Our Services Include:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-search"></i>Market research &amp; analysis</li>
+                            <li><i class="fas fa-handshake"></i>FTA navigation</li>
+                            <li><i class="fas fa-balance-scale"></i>Risk mitigation &amp; compliance</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="cta-button">Get Market Insights</a>
+            </div>
+
+            <!-- UK to EU Export -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-number">04</div>
+                <h3>UK to EU Export Solutions</h3>
+                <div class="brexit-alert">
+                    <i class="fas fa-exclamation-circle"></i> Post-Brexit customs expertise
+                </div>
+                <p>
+                    We guide businesses through new customs regulations and procedures for smooth EU exports.
+                </p>
+                <div class="service-grid">
+                    <div>
+                        <h4>Key Focus Areas:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-barcode"></i>Commodity code selection</li>
+                            <li><i class="fas fa-file-signature"></i>Incoterms guidance</li>
+                            <li><i class="fas fa-receipt"></i>Commercial invoice preparation</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>We Provide:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i>Logistics partner matching</li>
+                            <li><i class="fas fa-map-marked"></i>Process mapping</li>
+                            <li><i class="fas fa-sync-alt"></i>Regulation updates</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="cta-button">Free Consultation</a>
+            </div>
+
+            <!-- West Africa Export -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-number">05</div>
+                <h3>West African Export Support</h3>
+                <p>
+                    Strategic solutions for navigating West Africa's diverse markets and logistics challenges.
+                </p>
+                <div class="service-grid">
+                    <div>
+                        <h4>Our Expertise:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-flag"></i>Country-specific compliance</li>
+                            <li><i class="fas fa-ship"></i>Reliable freight solutions</li>
+                            <li><i class="fas fa-chart-pie"></i>Market trend analysis</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Risk Management:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-hard-hat"></i>Infrastructure solutions</li>
+                            <li><i class="fas fa-balance-scale-left"></i>Political risk assessment</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="cta-button">West Africa Support</a>
+            </div>
+
+            <!-- Inward/Outward Processing -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-number">06</div>
+                <h3>Inward/Outward Processing</h3>
+                <p>
+                    Optimize your supply chain and maximize duty relief opportunities.
+                </p>
+                <div class="service-grid">
+                    <div>
+                        <h4>We Help With:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-coins"></i>Duty exemption claims</li>
+                            <li><i class="fas fa-recycle"></i>Re-import processing</li>
+                            <li><i class="fas fa-percentage"></i>VAT relief optimization</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Benefits:</h4>
+                        <ul class="service-features">
+                            <li><i class="fas fa-chart-line"></i>Cost reduction</li>
+                            <li><i class="fas fa-clock"></i>Process efficiency</li>
+                            <li><i class="fas fa-shield-alt"></i>Compliance assurance</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="cta-button">Get Duty Relief Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-light">
+        <div class="container text-center py-5">
+            <h2 class="mb-4" data-aos="fade-up">Ready to Expand Your Business Globally?</h2>
+            <p class="mb-5 lead" data-aos="fade-up" data-aos-delay="200">
+                Contact us today to discuss how our services can help your business achieve international success.
+            </p>
+            <a href="index.html#contact" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="400">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5>Trade Africa Limited (TAL)</h5>
+                    <p>Empowering African MSMEs to expand globally through expert consultancy in international trade, logistics, and market entry.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                        <li><a href="index.html#big-idea"><i class="bi bi-chevron-right"></i> Our Vision</a></li>
+                        <li><a href="index.html#blog"><i class="bi bi-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Resources</a></li>
+                        <li><a href="index.html#contact"><i class="bi bi-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Global Logistics</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Executive Training</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Market Entry</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Export Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 74 Eta Agbor Road, Calabar Lagos, Nigeria</li>
+                        <li><i class="fas fa-phone me-2"></i> (+234) 703-226-2981</li>
+                        <li><i class="fas fa-envelope me-2"></i> E.A.Okon@edu.Salford.ac.uk</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Trade Africa Limited (TAL). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Form -->
+    <div id="modalForm" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">×</span>
+            <h2>Optimize Your Supply Chain</h2>
+            <form id="supplyChainForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="company" placeholder="Company Name" required>
+                <textarea name="message" placeholder="How can we help?" rows="4" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Library for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Modal functionality
+        const modal = document.getElementById("modalForm");
+        const openBtn = document.getElementById("openFormButton");
+        const closeBtn = document.getElementById("closeModal");
+
+        openBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            modal.style.display = "block";
+        });
+
+        closeBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function(e) {
+            if (e.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Form submission
+        document.getElementById("supplyChainForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Thank you for your interest! We will contact you soon to discuss optimizing your supply chain.");
+            modal.style.display = "none";
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

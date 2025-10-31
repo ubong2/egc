@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Trade Africa Limited (TAL)</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a3a5f;
+            --secondary-blue: #2c5282;
+            --accent-gold: #d4af37;
+            --light-gold: #f7e8c3;
+            --dark-text: #2d3748;
+            --light-text: #718096;
+            --light-bg: #f7fafc;
+            --cream: #f8f4e9;
+        }
+
+        body {
+            color: var(--dark-text);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden !important;
+            width: 100%; 
+            background-color: var(--light-bg);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .navbar-brand span {
+            color: var(--accent-gold);
+        }
+
+        .nav-link {
+            margin: 0 10px;
+            transition: color 0.3s;
+            color: var(--dark-text);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-blue);
+            border-color: var(--secondary-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: white;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            background-color: #b8941f;
+            border-color: #b8941f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-about {
+            background: linear-gradient(rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-section {
+            padding: 100px 0;
+        }
+
+        .section-gray {
+            background-color: var(--light-bg);
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .icon-box i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+        }
+
+        .values-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .values-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .values-list li:last-child {
+            border-bottom: none;
+        }
+
+        .values-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .code-conduct {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .founder-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .founder-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 5px solid var(--light-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .founder-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--light-text);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .founder-quote:before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: var(--light-gold);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .stat-card p {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin: 0;
+        }
+
+        .footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer h5 {
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+        }
+
+        .footer a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-about {
+                padding: 120px 0 80px;
+            }
+            
+            .card, .code-conduct, .stat-card {
+                padding: 30px 25px;
+            }
+            
+            .founder-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .founder-img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .founder-quote {
+                padding-left: 0;
+            }
+            
+            .founder-quote:before {
+                display: none;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Trade Africa <span>Limited (TAL)</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">PDF</a></li>
+                            <li><a class="dropdown-item" href="#">Newsletter</a></li>
+                            <li><a class="dropdown-item" href="#">Industry</a></li>
+                            <li><a class="dropdown-item" href="#">Webinar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-about">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">About Trade Africa Limited</h1>
+            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">
+                Empowering African businesses to conquer global markets through expert consultancy and strategic partnerships
+            </p>
+            <a href="#our-purpose" class="btn btn-gold btn-lg" data-aos="fade-up" data-aos-delay="400">Our Story</a>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section id="our-purpose" class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Who We Are</h2>
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card">
+                        <div class="icon-box">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Our Purpose</h3>
+                        <p>Trade Africa Limited aims to empower African MSMEs by simplifying international trade and fostering sustainable growth. We offer adapted consultancy in global logistics, market entry strategies, and executive development to help businesses confidently navigate new markets.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card">
+                        <div class="icon-box">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <h3>What We Do</h3>
+                        <p>At Trade Africa Limited we empower African MSMEs to expand globally by providing expert consultancy in international trade, logistics, and market entry. Our tailored solutions help businesses overcome barriers, optimize operations, and unlock growth opportunities for long-term success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Philosophy Section -->
+    <section class="about-section section-gray">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Core Philosophy</h2>
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card">
+                        <h3>What We Believe</h3>
+                        <ul class="values-list">
+                            <li>Insightful Solutions: Challenge traditional approaches with innovative insights</li>
+                            <li>Inspiring Growth: Collaborative empowerment for long-term success</li>
+                            <li>Navigating Complexity: Simplifying international trade processes</li>
+                            <li>Integrity in Action: Transparent challenges and honest communication</li>
+                            <li>Growth Through Partnership: Mutual success through client potential</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card">
+                        <h3>Our Values</h3>
+                        <ul class="values-list">
+                            <li>Ethical Conduct: Highest standards of business ethics</li>
+                            <li>Collaboration: Strong partnerships for lasting impact</li>
+                            <li>Excellence: Top-tier solutions driving tangible results</li>
+                            <li>Commitment to Growth: Scaling African businesses globally</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code of Conduct Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="code-conduct" data-aos="fade-up">
+                <h3>Our Code of Conduct</h3>
+                <p>At Trade Africa Limited, our Code of Conduct outlines the principles guiding our behavior and decision-making. We maintain a culture of trust and accountability through regular reviews and updates aligned with industry best practices and evolving business landscapes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder's Vision Section -->
+    <section class="about-section section-gray">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Founder's Vision</h2>
+            <div class="founder-section" data-aos="fade-up">
+                <img src="images/ceo.png" alt="Edet Okon, CEO & Principal Consultant" class="founder-img">
+                <div>
+                    <p class="founder-quote">"At Trade Africa Limited, we believe in empowering businesses to navigate global trade complexities with confidence. We've built a consultancy specializing in international market entry, logistics optimization, and executive development. Our focus on Africa's MSME sector helps businesses scale beyond borders through actionable insights and strategic support. We're committed to driving sustainable growth, fostering innovation, and unlocking new opportunities for international expansion."</p>
+                    <h3 style="margin-top: 2rem;">Edet Okon</h3>
+                    <p>CEO & Principal Consultant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3 data-target="2">2+</h3>
+                    <p>Businesses Expanded Globally</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3 data-target="4">4</h3>
+                    <p>International Trade Routes</p>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3 data-target="3">3</h3>
+                    <p>Executive Programs Conducted</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-light">
+        <div class="container text-center py-5">
+            <h2 class="mb-4" data-aos="fade-up">Ready to Expand Your Business Globally?</h2>
+            <p class="mb-5 lead" data-aos="fade-up" data-aos-delay="200">
+                Partner with Trade Africa Limited to navigate international markets with confidence.
+            </p>
+            <a href="contact.html" class="btn btn-primary btn-lg me-3" data-aos="fade-up" data-aos-delay="400">Get Started</a>
+            <a href="services.html" class="btn btn-outline-primary btn-lg" data-aos="fade-up" data-aos-delay="600">Our Services</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5>Trade Africa Limited (TAL)</h5>
+                    <p>Empowering African MSMEs to expand globally through expert consultancy in international trade, logistics, and market entry.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
+                        <li><a href="about.html"><i class="bi bi-chevron-right"></i> About</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Resources</a></li>
+                        <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Global Logistics</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Executive Training</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Market Entry</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Export Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 74 Eta Agbor Road, Calabar Lagos, Nigeria</li>
+                        <li><i class="fas fa-phone me-2"></i> (+234) 703-226-2981</li>
+                        <li><i class="fas fa-envelope me-2"></i> E.A.Okon@edu.Salford.ac.uk</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Trade Africa Limited (TAL). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Library for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-card h3');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Trigger counter animation when stats section is in viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Trade Africa Limited (TAL)</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a3a5f;
+            --secondary-blue: #2c5282;
+            --accent-gold: #d4af37;
+            --light-gold: #f7e8c3;
+            --dark-text: #2d3748;
+            --light-text: #718096;
+            --light-bg: #f7fafc;
+            --cream: #f8f4e9;
+        }
+
+        body {
+            color: var(--dark-text);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden !important;
+            width: 100%; 
+            background-color: var(--light-bg);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .navbar-brand span {
+            color: var(--accent-gold);
+        }
+
+        .nav-link {
+            margin: 0 10px;
+            transition: color 0.3s;
+            color: var(--dark-text);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-blue);
+            border-color: var(--secondary-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: white;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            background-color: #b8941f;
+            border-color: #b8941f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-contact {
+            background: linear-gradient(rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contact-section {
+            padding: 100px 0;
+        }
+
+        .contact-info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-details li {
+            padding: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-details li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-details i {
+            color: var(--accent-gold);
+            margin-right: 15px;
+            margin-top: 4px;
+            font-size: 1.2rem;
+            min-width: 20px;
+        }
+
+        .business-hours {
+            margin-top: 30px;
+        }
+
+        .business-hours h5 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hours-list .day {
+            font-weight: 600;
+        }
+
+        .hours-list .time {
+            color: var(--light-text);
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+
+        .form-control {
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .office-locations {
+            margin-top: 50px;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            height: 100%;
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .location-card h5 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer h5 {
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+        }
+
+        .footer a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-contact {
+                padding: 120px 0 80px;
+            }
+            
+            .contact-info-card,
+            .form-card {
+                padding: 30px 25px;
+            }
+            
+            .contact-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Trade Africa <span>Limited (TAL)</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">PDF</a></li>
+                            <li><a class="dropdown-item" href="#">Newsletter</a></li>
+                            <li><a class="dropdown-item" href="#">Industry</a></li>
+                            <li><a class="dropdown-item" href="#">Webinar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-contact">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4" data-aos="fade-up">Get In Touch</h1>
+            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">
+                Ready to expand your business globally? Contact us today for expert consultation.
+            </p>
+            <a href="#contact-form" class="btn btn-gold btn-lg" data-aos="fade-up" data-aos-delay="400">Send a Message</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+            
+            <div class="row g-5 mb-5">
+                <!-- Contact Information -->
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h3 class="mb-4">Get in Touch</h3>
+                        <p class="mb-4">We'd love to hear from you. Contact us using the information below.</p>
+                        
+                        <ul class="contact-details">
+                            <li>
+                                <i class="bi bi-telephone"></i>
+                                <div>
+                                    <strong>Phone</strong><br>
+                                    (+234) 703-226-2981
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-envelope"></i>
+                                <div>
+                                    <strong>Email</strong><br>
+                                    E.A.Okon@edu.Salford.ac.uk
+                                </div>
+                            </li>
+                            <li>
+                                <i class="bi bi-geo-alt"></i>
+                                <div>
+                                    <strong>Address</strong><br>
+                                    74 Eta Agbor Road, Calabar Lagos, Nigeria
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="business-hours">
+                            <h5>Business Hours</h5>
+                            <ul class="hours-list">
+                                <li>
+                                    <span class="day">Monday - Friday</span>
+                                    <span class="time">9:00 AM - 6:00 PM</span>
+                                </li>
+                                <li>
+                                    <span class="day">Saturday</span>
+                                    <span class="time">10:00 AM - 2:00 PM</span>
+                                </li>
+                                <li>
+                                    <span class="day">Sunday</span>
+                                    <span class="time">Closed</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="col-lg-8" data-aos="fade-left">
+                    <div class="form-card" id="contact-form">
+                        <h3 class="mb-4">Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="location" class="form-label">Location</label>
+                                    <input type="text" class="form-control" id="location" placeholder="Enter your location" required>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="service" class="form-label">Service Interested In</label>
+                                <select class="form-control" id="service">
+                                    <option value="">Select a service</option>
+                                    <option value="logistics">Global Logistics Services</option>
+                                    <option value="training">Executive Development & Training</option>
+                                    <option value="market-entry">Market Entry Strategies</option>
+                                    <option value="uk-eu">UK to EU Export Solutions</option>
+                                    <option value="west-africa">West African Export Support</option>
+                                    <option value="processing">Inward/Outward Processing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Tell us about your business and how we can help..." required></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="row">
+                <div class="col-12" data-aos="fade-up">
+                    <h3 class="mb-4">Our Location</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.218668312272!2d7.077258274995846!3d9.057722291057928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0b3b9c71e7c5%3A0xd70c1c0bb91bb82f!2sAbuja%2C%20Federal%20Capital%20Territory%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1681234567890!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Office Locations -->
+            <div class="office-locations">
+                <h3 class="section-title" data-aos="fade-up">Our Offices</h3>
+                <div class="row g-4">
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="location-card">
+                            <h5>Nigeria Office</h5>
+                            <p><i class="bi bi-geo-alt me-2 text-primary-gold"></i> 74 Eta Agbor Road, Calabar Lagos, Nigeria</p>
+                            <p><i class="bi bi-telephone me-2 text-primary-gold"></i> (+234) 703-226-2981</p>
+                            <p><i class="bi bi-envelope me-2 text-primary-gold"></i> nigeria@tradeafrica.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="location-card">
+                            <h5>UK Office</h5>
+                            <p><i class="bi bi-geo-alt me-2 text-primary-gold"></i> 123 Business Avenue, London, UK</p>
+                            <p><i class="bi bi-telephone me-2 text-primary-gold"></i> (+44) 20 7123 4567</p>
+                            <p><i class="bi bi-envelope me-2 text-primary-gold"></i> uk@tradeafrica.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="location-card">
+                            <h5>South Africa Office</h5>
+                            <p><i class="bi bi-geo-alt me-2 text-primary-gold"></i> 45 Trade Street, Johannesburg, SA</p>
+                            <p><i class="bi bi-telephone me-2 text-primary-gold"></i> (+27) 11 234 5678</p>
+                            <p><i class="bi bi-envelope me-2 text-primary-gold"></i> sa@tradeafrica.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5>Trade Africa Limited (TAL)</h5>
+                    <p>Empowering African MSMEs to expand globally through expert consultancy in international trade, logistics, and market entry.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
+                        <li><a href="index.html#blog"><i class="bi bi-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Resources</a></li>
+                        <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Global Logistics</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Executive Training</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Market Entry</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Export Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 74 Eta Agbor Road, Calabar Lagos, Nigeria</li>
+                        <li><i class="fas fa-phone me-2"></i> (+234) 703-226-2981</li>
+                        <li><i class="fas fa-envelope me-2"></i> E.A.Okon@edu.Salford.ac.uk</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Trade Africa Limited (TAL). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Library for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Form validation
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const location = document.getElementById("location").value;
+            const message = document.getElementById("message").value;
+            
+            if (name && email && location && message) {
+                alert("Thank you for your message! We will get back to you soon.");
+                this.reset();
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
