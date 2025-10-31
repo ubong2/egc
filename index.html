@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EGC Consulting - Empowering African MSMEs</title>
+    <title>Trade Africa Limited (TAL) - Empowering African MSMEs</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -14,9 +14,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- AOS Library for scroll animations -->
+     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        
         :root {
             --primary-blue: #1a3a5f;
             --secondary-blue: #2c5282;
@@ -28,6 +28,18 @@
             --cream: #f8f4e9;
         }
 
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --primary-blue: #2c5282;
+            --secondary-blue: #1a365d;
+            --accent-gold: #d4af37;
+            --light-gold: #3c366b;
+            --dark-text: #e2e8f0;
+            --light-text: #a0aec0;
+            --light-bg: #1a202c;
+            --cream: #2d3748;
+        }
+
         .bg-cream { background-color: var(--cream) !important; }
         .bg-primary-blue { background-color: var(--primary-blue) !important; }
         .text-primary-gold { color: var(--accent-gold) !important; }
@@ -36,9 +48,16 @@
             color: var(--dark-text);
             font-family: 'Lato', sans-serif;
             line-height: 1.6;
-
             overflow-x: hidden !important;
             width: 100%; 
+            background-color: var(--light-bg);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Prevent all horizontal scroll issues */
+        html, body {
+            overflow-x: hidden !important;
+            width: 100%;
         }
 
         h1, h2, h3, h4, h5 {
@@ -51,31 +70,51 @@
             transition: all 0.3s ease;
         }
 
+        [data-theme="dark"] .navbar {
+            background-color: rgba(45, 55, 72, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
         .navbar-brand {
             font-weight: 700;
             color: var(--primary-blue);
-        }
-
-        .whyus{
-            background: linear-gradient(rgba(60, 100, 150, 0.6), rgba(60, 100, 150, 0.6));
-
-        }
-        .nav-link {
-            /* font-weight: 500; */
-            /* color: var(--dark-text); */
-            margin: 0 10px;
-            transition: color 0.3s;
         }
 
         .navbar-brand span {
             color: var(--accent-gold);
         }
 
+        .whyus {
+            background: linear-gradient(rgba(60, 100, 150, 0.6), rgba(60, 100, 150, 0.6));
+        }
+
+        .nav-link {
+            margin: 0 10px;
+            transition: color 0.3s;
+            color: var(--light-bg);
+        }
+
         .nav-link:hover {
             color: var(--accent-gold) !important;
         }
 
-        .nav-link .active {
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        [data-theme="dark"] .dropdown-menu {
+            background-color: #2d3748;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown-item {
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light-gold);
             color: var(--accent-gold);
         }
 
@@ -146,19 +185,18 @@
             transform: translateX(-50%);
         }
 
-    
+        .big-idea-section .section-title:after{
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            bottom: -15px;
+            left: 20%;
+            transform: translateX(-50%);
 
-        .team-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            border: 5px solid var(--light-gold);
         }
 
-
-      
         .footer {
             background-color: var(--primary-blue);
             color: white;
@@ -197,53 +235,37 @@
             transform: translateY(-3px);
         }
 
-        .dark-mode {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-
-        .dark-mode .navbar {
-            background-color: #2d3748;
-        }
-
-        .dark-mode .card {
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-
-        .dark-mode .form-control {
-            background-color: #4a5568;
-            border-color: #4a5568;
-            color: #e2e8f0;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-section p {
-                font-size: 1rem;
-            }
-        }
-
-
         .service-card {
             transition: transform 0.3s ease;
             border: none;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             height: 100%;
-            text-align: center;
+            text-align: left;
+            background-color: white;
         }
-        
+
+        .report .service-card {
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: 100%;
+            text-align: left;
+            background-color: white;
+            font-size: 14px;
+            border-left: 5px solid var(--primary-blue);
+        }
+        .report .service-card:hover {
+            transform: translateY(-5px);
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        [data-theme="dark"] .service-card {
+            background-color: #2d3748;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
         .service-card:hover {
             transform: translateY(-5px);
         }
-
-
-        
-        
 
         .service-icon {
             font-size: 3rem;
@@ -272,38 +294,282 @@
         .stat-number {
             font-size: 3rem;
             font-weight: bold;
-            color: var(--primary-gold);
+            color: var(--accent-gold);
         }
 
-
-        /* ✅ Prevent all horizontal scroll issues */
-        html, body {
-          overflow-x: hidden !important;
-          width: 100%;
+        /* Blog Section Styles */
+        .blog-section {
+            background-color: var(--light-bg);
+            padding: 80px 0;
         }
-        
-       
 
+        .blog-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+        }
 
+        [data-theme="dark"] .blog-card {
+            background-color: #2d3748;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background-color: var(--light-bg);
+            color: var(--primary-blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .blog-date {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: var(--primary-blue);
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: var(--accent-gold);
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        .recommended-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .recommended-subtitle {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 15px;
+        }
+
+        .newsletter-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+            color: white;
+        }
+
+        /* Big Idea Section */
+        .big-idea-section {
+            padding: 100px 0;
+            background: linear-gradient(to right, var(--light-bg) 0%, var(--cream) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .big-idea-section {
+            background: linear-gradient(to right, #1a202c 0%, #2d3748 100%);
+        }
+
+        .big-idea-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .big-idea-image {
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .big-idea-image:hover {
+            transform: scale(1.02);
+        }
+
+        .idea-highlight {
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+
+        .usp-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        [data-theme="dark"] .usp-card {
+            background: #2d3748;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .usp-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .usp-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        /* Podcast Section */
+        .podcast-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--cream) 100%);
+        }
+
+        [data-theme="dark"] .podcast-section {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        }
+
+        .podcast-video {
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .podcast-video:hover {
+            transform: scale(1.02);
+        }
+
+        .podcast-content {
+            padding-left: 40px;
+        }
+
+        .podcast-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        /* Dark mode card adjustments */
+        [data-theme="dark"] .card {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            border-color: #4a5568;
+        }
+
+        [data-theme="dark"] .form-control {
+            background-color: #4a5568;
+            border-color: #4a5568;
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .form-control::placeholder {
+            color: #a0aec0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+            
+            .big-idea-section {
+                padding: 60px 0;
+            }
+            
+            .podcast-content {
+                padding-left: 0;
+                margin-top: 40px;
+            }
+        }
 
     </style>
 </head>
-<body>
+<body data-theme="light">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary-blue fixed-top">
         <div class="container">
-            <!-- <a class="navbar-brand text-white" href="#home">EGC <span>Consulting</span></a> -->
-             <a href="#home"><img src="images/EGC APPROVD LOGO 1.jpg" alt="EGC APPROVED LOGO" style="width: 70px; height: 50px;"></a>
+            <a class="navbar-brand text-white" href="#home">Trade Africa <span>Limited (TAL)</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#industries">Industries</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#pdf">PDF</a></li>
+                            <li><a class="dropdown-item" href="#newsletter">Newsletter</a></li>
+                            <li><a class="dropdown-item" href="#industry">Industry</a></li>
+                            <li><a class="dropdown-item" href="#webinar">Webinar</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
                     <li class="nav-item">
                         <button class="btn btn-outline-light ms-2" id="darkModeToggle">
@@ -321,10 +587,9 @@
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <h1>Empowering African Businesses to Conquer Global Markets</h1>
-                    <!-- <p>Expert consultancy in international trade, logistics, and market entry. Our tailored strategies help businesses overcome barriers, optimize operations, and unlock sustainable growth opportunities.</p> -->
-                    <p>EGC aims to empower African MSMEs by simplifying international trade and fostering sustainable growth. We offer adapted consultancy in global logistics, market entry strategies, and executive development to help businesses confidently navigate new markets.</p>
+                    <p>Trade Africa Limited (TAL) aims to empower African MSMEs by simplifying international trade and fostering sustainable growth. We offer adapted consultancy in global logistics, market entry strategies, and executive development to help businesses confidently navigate new markets.</p>
                     <a href="#contact" class="btn btn-gold me-3">Book a Consultation</a>
-                    <a href="#services" class="btn btn-outline-light">Our Services</a>
+                    <a href="#big-idea" class="btn btn-outline-light">Our Vision</a>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -350,158 +615,94 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container my-4">
-            <h2 class="section-title" data-aos="fade-up">About EGC Consulting</h2>
+    
+
+    <!-- Blog Recommendations Section -->
+    <section id="blog" class="blog-section py-5">
+        <div class="container py-5">
+            <div class="recommended-header" data-aos="fade-up">
+                <h2 class="section-title">RECOMMENDED FOR YOU</h2>
+                <p class="recommended-subtitle text-center mb-3">Our Latest Thinking Based on Your Interests</p>
+            </div>
+            <div class="row">
+                <!-- Blog Post 1 -->
+                <div class="col-md-12 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card blog-card h-100 border-0">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="blog-img" alt="African Export Trends">
+                        <div class="card-body">
+                            <span class="blog-category">Export Strategy</span>
+                            <h5 class="blog-title">Top 5 African Export Markets to Watch in 2023</h5>
+                            <p class="blog-excerpt">Discover the emerging markets offering the greatest opportunities for African exporters this year.</p>
+                            <a href="#" class="read-more fw-bold">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 2 -->
+                <div class="col-md-12 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card blog-card h-100 border-0">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="blog-img" alt="Supply Chain Optimization">
+                        <div class="card-body">
+                            <span class="blog-category">Logistics</span>
+                            <h5 class="blog-title">Optimizing Supply Chains for African MSMEs</h5>
+                            <p class="blog-excerpt">Practical strategies to streamline your supply chain and reduce operational costs by up to 30%.</p>
+                            <a href="#" class="read-more fw-bold">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="col-md-12 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card blog-card h-100 border-0">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="blog-img" alt="Digital Transformation">
+                        <div class="card-body">
+                            <span class="blog-category">Digital Trade</span>
+                            <h5 class="blog-title">Leveraging Digital Platforms for Cross-Border Trade</h5>
+                            <p class="blog-excerpt">How African businesses can use e-commerce and digital tools to expand their international reach.</p>
+                            <a href="#" class="read-more fw-bold">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="#" class="btn btn-primary">View All Blog Posts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big Idea Section -->
+    <section id="big-idea" class="big-idea-section">
+        <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4" data-aos="fade-right">
-                    <p class="fs-5">At EGC we empower African MSMEs to expand globally by providing expert consultancy in international trade, logistics, and market entry. Our tailored solutions help businesses overcome barriers, optimize operations, and unlock growth opportunities for long-term success.</p>
-                    <!-- <p>Our tailored strategies help businesses overcome barriers, optimize operations, and unlock sustainable growth opportunities. With deep expertise in African markets and global trade dynamics, we provide the guidance needed to navigate complex international business landscapes.</p> -->
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="big-idea-content">
+                        <h2 class="section-title text-start">THE BIG IDEA</h2>
+                        <p class="lead fs-4 mb-4">To develop and help African Micro, Small and Medium Enterprises expand operations and connect to the international markets.</p>
+                        
+                        <div class="idea-highlight">
+                            <h3 class="text-primary-blue mb-3">TAL UNIQUE SELLING POINT</h3>
+                            <p class="fs-5">Trade Africa Limited offers MSME-tailored services in business development, import-export platforms, global logistics, and Streamlined trade facilitation options, to expand internationally with confidence.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <img src="images/about.webp" class="img-fluid rounded" alt="About EGC">
+                    <img src="images/rocks.webp" 
+                         alt="African Business Growth" 
+                         class="img-fluid big-idea-image">
                 </div>
             </div>
         </div>
     </section>
-
-
-
-    
-
-
-    <!-- Services Section -->
-    <section class="section-padding bg-light py-5" id="services">
-        <div class="container-fluid">
-            <div class="col-md-11 mx-auto">
-                <div class="section-title">
-                    <h2>Our Services</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="service-card card p-3">
-                            <div class="service-icon">
-                                <i class="fas fa-globe-africa"></i>
-                            </div>
-                            <h4>Personalised Import & Export platform</h4>
-                            <p>We partner with National Customs and Export Councils to create industry-focused trade platforms for SMEs to exchange goods and services.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="service-card card p-3">
-                            <div class="service-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h4>Executive Development</h4>
-                            <p>We offer executive training and development workshops, symposiums and seminars to enhance SME's internationalisation and international trade knowledge and participation.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="service-card card p-3">
-                            <div class="service-icon">
-                                <i class="fas fa-shipping-fast"></i>
-                            </div>
-                            <h4>International Logistics Network</h4>
-                            <p>Eds Global Consult provides global logistics services that enable our clients to deliver or move their products across national borders.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="service-card card p-3">
-                            <div class="service-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h4>Centralise Trade Procedure</h4>
-                            <p>Eds Global Consult handles the trade documentation process and fulfil all national and trade partner's legal requirements using its single trade platform while the SME focuses on production and service quality delivery.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="service-card card p-3">
-                            <div class="service-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <h4>Single Trade Window</h4>
-                            <p>Through our vast network, we create a funnel information platform that allows the identification and engagement of producers and buyers within industries leveraging EPZ and FTA platforms.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="service-card card p-3">
-                            <div class="service-icon">
-                                <i class="fas fa-file-contract"></i>
-                            </div>
-                            <h4>Business Development</h4>
-                            <p>We offer robust business development options tailored to our client's needs. Our development options include Business redesign and engineering, Corporate strategy development and deployment, Focused internationalisation strategy, Marketing and branding, and SME financing and financial management.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Why Choose Us Section -->
-    <section class="py-5 whyus" >
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Why Choose Us</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="bi bi-globe"></i>
-                        </div>
-                        <h4>Global Expertise</h4>
-                        <p>Deep understanding of international markets and trade regulations across Africa and beyond.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="bi bi-gear"></i>
-                        </div>
-                        <h4>Customized Solutions</h4>
-                        <p>Tailored strategies designed specifically for your business needs and market objectives.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="bi bi-lightbulb"></i>
-                        </div>
-                        <h4>Strategic Insights</h4>
-                        <p>Data-driven analysis and market intelligence to inform your expansion decisions.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card service-card text-center p-4">
-                        <div class="service-icon">
-                            <i class="bi bi-graph-up-arrow"></i>
-                        </div>
-                        <h4>Sustainable Growth</h4>
-                        <p>Focus on building long-term, resilient business models for continued success.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-
-
-    
-
-
 
     <!-- Industries Section -->
     <section id="industries" class="py-5">
-        <div class="container">
+        <div class="container py-5">
             <h2 class="section-title" data-aos="fade-up">Our Core Philosophy</h2>
             <div class="row">
                 <div class="col-md-6 col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card service-card h-100">
-                        <div class="card-body">
+                        <div class="card-body p-5">
                             <h4>What We Believe</h4>
-
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <table>
@@ -511,7 +712,6 @@
                                         </tr>                                    
                                     </table>
                                 </li>
-
                                 <li class="list-group-item">
                                     <table>
                                         <tr class="align-top">
@@ -520,7 +720,6 @@
                                         </tr>                                    
                                     </table>
                                 </li>
-
                                 <li class="list-group-item">
                                     <table>
                                         <tr class="align-top">
@@ -529,7 +728,6 @@
                                         </tr>                                    
                                     </table>
                                 </li>
-
                                 <li class="list-group-item">
                                     <table>
                                         <tr class="align-top">
@@ -538,7 +736,6 @@
                                         </tr>                                    
                                     </table>
                                 </li>
-
                                 <li class="list-group-item">
                                     <table>
                                         <tr class="align-top">
@@ -547,17 +744,14 @@
                                         </tr>                                    
                                     </table>
                                 </li>
-
                             </ul>
-
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card service-card h-100">
-                        <div class="card-body">
+                        <div class="card-body p-5">
                             <h4>Our Values</h4>
-
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <table>
@@ -567,7 +761,6 @@
                                         </tr>                                    
                                     </table>
                                 </li>
-
                                 <li class="list-group-item">
                                     <table>
                                         <tr class="align-top">
@@ -576,7 +769,6 @@
                                         </tr>                                    
                                     </table>
                                 </li>
-
                                 <li class="list-group-item">
                                     <table>
                                         <tr class="align-top">
@@ -585,7 +777,6 @@
                                         </tr>                                    
                                     </table>
                                 </li>
-
                                 <li class="list-group-item">
                                     <table>
                                         <tr class="align-top">
@@ -594,105 +785,107 @@
                                         </tr>                                    
                                     </table>
                                 </li>
-
-
                             </ul>
-
-                            
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card service-card h-100">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Technology">
-                        <div class="card-body">
-                            <h4 class="card-title">Technology</h4>
-                            <p class="card-text">Guiding tech startups and companies in scaling their solutions across African and global markets.</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
 
-
-
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container py-5">
-            <h2 class="mb-4">Ready to Expand Your Business Globally?</h2>
-            <p class="mb-4">Contact us today for a free consultation and discover how EGC Consulting can help your business achieve international success.</p>
-            <a href="#contact" class="btn btn-gold">Schedule Consultation</a>
+    <!-- Whitepapers Section -->
+    <section id="whitepapers" class="cta-section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="mb-4">Whitepapers & Industry Reports</h2>
+            <p class="mb-4">Expert insights on global trade compliance and logistics optimization</p>
+            <a href="#contact" class="btn btn-gold">Reports</a>
         </div>
     </section>
 
-
-
-
-    <!-- Services Preview -->
-    <section class="section-padding py-5 bg-light">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="text-primary-blue mb-3">Our Strategic Services</h2>
-                    <p class="lead">Comprehensive solutions tailored for African MSMEs ready to conquer international markets</p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-search text-primary-gold display-6 mb-3"></i>
-                            <h5 class="card-title text-primary-blue">Market Research & Entry Strategy</h5>
-                            <p class="card-text">In-depth analysis and customized entry plans for global markets.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-graph-up text-primary-gold display-6 mb-3"></i>
-                            <h5 class="card-title text-primary-blue">Business Development</h5>
-                            <p class="card-text">Building international partnerships and distribution networks.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card service-card">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-shield-check text-primary-gold display-6 mb-3"></i>
-                            <h5 class="card-title text-primary-blue">Compliance & Standards</h5>
-                            <p class="card-text">Navigating regulatory requirements and quality standards.</p>
-                        </div>
+    <div class="container-fluid px-5 py-5 bg-white">
+        <div class="row g-4 report py-5">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card service-card h-100">
+                    <img src="images/pexels-photo-730547.jpeg" alt="" class="img-fluid card-img-top h-75">
+                    <div class="text-start p-4">
+                        <h3 class="mb-4">Global Trade Compliance Whitepapers</h3>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item">
+                                <i class="bi bi-chevron-right"></i> Navigating Modern Customs Regulations
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-chevron-right"></i> Sanctions Screening Best Practices
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-chevron-right"></i> Dual-Use Goods Classification Guide
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary">Download Whitepaper Series</button>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-5">
-                <a href="services.html" class="btn btn-primary btn-lg">View All Services</a>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card service-card h-100">
+                    <img src="images/pexels-photo-8293777.jpeg" alt="" class="img-fluid card-img-top">
+                    <div class="text-start p-4">
+                        <h3 class="mb-4">Logistics Trend Reports</h3>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item border-5">
+                                <i class="bi bi-chevron-right"></i> 2025 Global Supply Chain Benchmark Report
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-chevron-right"></i> Cold Chain Logistics Innovations
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-chevron-right"></i> E-commerce Last-Mile Delivery Analysis
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary">Access Full Reports</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card service-card h-100">
+                    <img src="images/pexels-photo-7567443.jpeg" alt="" class="img-fluid card-img-top">
+                    <div class="text-start p-4">
+                        <h3 class="mb-4">Compliance Toolkit</h3>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item">
+                                <i class="bi bi-chevron-right"></i> HS Code Classification Handbook
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-chevron-right"></i> Export Control Checklists
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-chevron-right"></i> Trade Agreement Calculators
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary">Get Toolkit</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-
-
-    <!-- Stats Section -->
-    <section class="section-padding bg-cream py-5">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Impact</h2>
-            <div class="col-md-9 mx-auto">
-                <div class="row text-center">
-                    <div class="col-md-4 col-4 mb-4">
-                        <div class="stat-number">2+</div>
-                        <p class="text-primary-blue fw-bold">Businesses Expanded Globally</p>
+    <!-- Podcast Section -->
+    <section id="podcast" class="podcast-section">
+        <div class="container p-5">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="">
+                        <img src="images/podcast.webp" alt="" class="img-fluid rounded">
                     </div>
-                    <div class="col-md-4 col-4 mb-4">
-                        <div class="stat-number">4+</div>
-                        <p class="text-primary-blue fw-bold">International Trade Routes</p>
-                    </div>
-                    <div class="col-md-4 col-4 mb-4">
-                        <div class="stat-number">3</div>
-                        <p class="text-primary-blue fw-bold">Executive Programs Conducted</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="podcast-content">
+                        <div class="podcast-icon">
+                            <i class="bi bi-mic-fill"></i>
+                        </div>
+                        <h2 class="mb-4">Podcasts by TAL</h2>
+                        <p class="lead mb-4">Listen to our expert discussions on international trade, market expansion strategies, and success stories from African businesses that have conquered global markets.</p>
+                        <a href="#" class="btn btn-primary">Learn more</a>
                     </div>
                 </div>
             </div>
@@ -701,7 +894,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
-        <div class="container">
+        <div class="container py-5">
             <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
             <div class="row g-4">
                 <div class="col-lg-6 mb-4 px-3" data-aos="fade-right">
@@ -731,7 +924,6 @@
                             </form>
                         </div>
                     </div>
-                    
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="card border-0 shadow p-4">
@@ -750,51 +942,43 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="mb-4">Stay Updated with TAL Insights</h2>
+                    <p class="mb-5 lead">Subscribe to our newsletter for the latest trends in international trade, logistics optimization, and market expansion strategies for African businesses.</p>
                     
+                    <form class="newsletter-form">
+                        <div class="row g-3">
+                            <div class="col-md-10">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-gold">Subscribe</button>
+                            </div>
+                        </div>
+                        <div class="form-text mt-3 text-white-50">
+                            We respect your privacy. Unsubscribe at any time.
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-    <section class="">
-        <div class="container py-5">
-            <h2 class="section-title" data-aos="fade-up">Founder's Vision</h2>
-
-            <div class="col-md-9 col-lg-8 mx-auto">
-                <div class="card border-0 shadow p-3">
-                    <div class="row align-top g-0">
-                        <div class="col-md-4">
-                            <div class="card-body">
-                                <img src="images/ceo.png" alt="Edet Okon, CEO &amp; Principal Consultant" class="img-fluid rounded">
-                            </div>
-                        </div>
-
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <div>
-                                    <p>"At EGC, we believe in empowering businesses to navigate global trade complexities with confidence. We've built a consultancy specializing in international market entry, logistics optimization, and executive development. Our focus on Africa's MSME sector helps businesses scale beyond borders through actionable insights and strategic support. We're committed to driving sustainable growth, fostering innovation, and unlocking new opportunities for international expansion."</p>
-                                    <h3>Edet Okon</h3>
-                                    <p>CEO &amp; Principal Consultant</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-    
-
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <h5>EGC Consulting</h5>
+                    <h5>Trade Africa Limited (TAL)</h5>
                     <p>Empowering African MSMEs to expand globally through expert consultancy in international trade, logistics, and market entry.</p>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -807,10 +991,10 @@
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="bi bi-chevron-right"></i> Home</a></li>
-                        <li><a href="#services"><i class="bi bi-chevron-right"></i> Services</a></li>
-                        <li><a href="#about"><i class="bi bi-chevron-right"></i> About</a></li>
-                        <li><a href="#industries"><i class="bi bi-chevron-right"></i> Industries</a></li>
+                        <li><a href="#big-idea"><i class="bi bi-chevron-right"></i> Our Vision</a></li>
                         <li><a href="#blog"><i class="bi bi-chevron-right"></i> Blog</a></li>
+                        <li><a href="#whitepapers"><i class="bi bi-chevron-right"></i> Resources</a></li>
+                        <li><a href="#contact"><i class="bi bi-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
@@ -832,7 +1016,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 EGC Consulting. All Rights Reserved.</p>
+                <p>&copy; 2023 Trade Africa Limited (TAL). All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -842,7 +1026,6 @@
     <!-- AOS Library for scroll animations -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    
     <script>
         // Initialize AOS
         AOS.init({
@@ -851,19 +1034,36 @@
             offset: 100
         });
 
-        // Dark mode toggle
+        // Dark mode toggle functionality
         const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        updateDarkModeIcon(currentTheme);
+
         darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateDarkModeIcon(newTheme);
+        });
+
+        function updateDarkModeIcon(theme) {
             const icon = darkModeToggle.querySelector('i');
-            if (document.body.classList.contains('dark-mode')) {
+            if (theme === 'dark') {
                 icon.classList.remove('bi-moon');
                 icon.classList.add('bi-sun');
+                darkModeToggle.setAttribute('title', 'Switch to light mode');
             } else {
                 icon.classList.remove('bi-sun');
                 icon.classList.add('bi-moon');
+                darkModeToggle.setAttribute('title', 'Switch to dark mode');
             }
-        });
+        }
 
         // Form validation
         document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -872,10 +1072,10 @@
             // Simple validation
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
+            const location = document.getElementById('location').value;
             const message = document.getElementById('message').value;
             
-            if (name && email && subject && message) {
+            if (name && email && location && message) {
                 alert('Thank you for your message! We will get back to you soon.');
                 this.reset();
             } else {
@@ -883,14 +1083,31 @@
             }
         });
 
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (email) {
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+            } else {
+                alert('Please fill in your email address.');
+            }
+        });
+
         // Navbar background change on scroll
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.backgroundColor = body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(45, 55, 72, 0.98)' 
+                    : 'rgba(255, 255, 255, 0.98)';
                 navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             } else {
-                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backgroundColor = body.getAttribute('data-theme') === 'dark'
+                    ? 'rgba(45, 55, 72, 0.95)'
+                    : 'rgba(255, 255, 255, 0.95)';
                 navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             }
         });
